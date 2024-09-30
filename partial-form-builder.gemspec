@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/partial/form_builder/version"
+require_relative "lib/partial_form_builder/version"
 
 Gem::Specification.new do |spec|
   spec.name = "partial-form-builder"
-  spec.version = Partial::FormBuilder::VERSION
+  spec.version = PartialFormBuilder::VERSION
   spec.authors = ["TODO: Write your name"]
   spec.email = ["TODO: Write your email address"]
 

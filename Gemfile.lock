@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    partialed-form-builder (0.1.0)
+    partial-form-builder (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -58,7 +58,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  partialed-form-builder!
+  partial-form-builder!
   rake (~> 13.0)
   standard (~> 1.3)
   test-unit (~> 3.0)

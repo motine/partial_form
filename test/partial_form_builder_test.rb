@@ -2,10 +2,10 @@
 
 require "test_helper"
 
-class Partial::FormBuilderTest < Test::Unit::TestCase
+class PartialFormBuilderTest < Test::Unit::TestCase
   test "VERSION" do
     assert do
-      ::Partial::FormBuilder.const_defined?(:VERSION)
+      ::PartialFormBuilder.const_defined?(:VERSION)
     end
   end
 
