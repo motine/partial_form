@@ -1,0 +1,14 @@
+<%# locals:
+  f: the form builder object
+  method: the attribute method on the model
+  errors: the errors for the attribute
+  options: the keyword arguments given
+%>
+
+<div class="form-group">
+  <%= f._label method, options.delete(:label) %>
+  <%= f.text_field method, options %>
+  <% if errors.any? %>
+    <p class="form-errors"><%= errors.to_sentence %></p>
+  <% end %>
+</div>

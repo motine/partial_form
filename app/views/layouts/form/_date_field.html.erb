@@ -1,0 +1,4 @@
+<%# please see _text_field partial for available locals %>
+
+<% local_assigns[:options].merge!(type: "date") %>
+<%= render partial: "layouts/form/text_field", locals: local_assigns %>
