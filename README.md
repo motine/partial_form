@@ -7,7 +7,7 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 ```bash
 # fish shell; TODO remove
 bundle install
-docker run -it --rm -v (pwd):/app -w /app ruby /bin/bash
+docker run -it --rm -v (pwd):/app -p 3000:3000 -w /app ruby:3.3 /bin/bash
 ```
 
 ## Installation
