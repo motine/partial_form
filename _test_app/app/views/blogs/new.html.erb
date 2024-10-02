@@ -1,0 +1,17 @@
+<h1>PartialForm <%= PartialForm::VERSION %> Test</h1>
+
+<%= form_with model: @blog, url: blogs_path, builder: PartialForm::Builder do |f| %>
+  <%= f._text_field :title %>
+  <p>The title field should show a label and an error message when the form is submitted empty.</p>
+
+  <%= f._text_field :author, label: "Writer", class: "other" %>
+  <p>The author field should have a label saying "Writer", have a purple background. On empty submission, it should turn purple.</p>
+
+  <%= f._email_field :email, label: false %>
+  <p>This field should not have a label, but the browser should validate it as an email.</p>
+
+  <%= f._date_field :started_at %>
+  <p>This field is overridden in this test app. It should say "Override".</p>
+
+  <%= f._submit %>
+<% end %>

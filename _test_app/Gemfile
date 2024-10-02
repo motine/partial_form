@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "rails", "~> 7.2.1"
+gem "tzinfo-data", platforms: %i[windows jruby]
+gem "ostruct"
+
+gem "partial_form", path: ".."
