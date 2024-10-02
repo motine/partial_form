@@ -9,7 +9,7 @@ module PartialForm
       source_root FORM_PARTIALS_PATH
       argument :given_selection, type: :string, optional: true, banner: "SELECTION" # optional because we ask for it if the user does not specify it
 
-      def self.banner #:nodoc:
+      def self.banner # :nodoc:
         <<~BANNER
           rails g partial_form:partials SELECTION [options]
 
@@ -22,8 +22,11 @@ module PartialForm
       def validate_selection
         @selection = given_selection
         valid_selections = SELECTION_GLOBS.keys.map(&:to_s)
-        unless valid_selections.include?(@selection)
+        if @selection.blank?
           @selection = ask("Which partials do you wan to copy?", limited_to: valid_selections)
+        end
+        unless valid_selections.include?(@selection)
+          raise Thor::Error, "Please choose a valid selection (first parameter): #{valid_selections.join(", ")}"
         end
       end
 
