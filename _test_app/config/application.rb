@@ -10,5 +10,7 @@ module TestApp
     config.load_defaults 7.2
     config.eager_load = false
     config.enable_reloading = true
+    config.consider_all_requests_local = true
+    config.action_dispatch.show_exceptions = true
   end
 end
