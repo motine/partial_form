@@ -26,7 +26,6 @@ module PartialForm
   # the first argument of a rich_* helper is always the method name (i.e. the attribute name in the model).
 
   class Builder < ActionView::Helpers::FormBuilder
-
     def initialize(*) # :nodoc:
       super
       # CAUTION
@@ -35,183 +34,179 @@ module PartialForm
       @template.field_error_proc = proc { |html_tag, instance| html_tag }
     end
 
-    # label(method, text = nil, options = {}, &block)
-
-    # button(value = nil, options = {}, &block)
-    # submit(value = nil, options = {})
-
-    # checkbox(method, options = {}, checked_value = "1", unchecked_value = "0")
-    # radio_button(method, tag_value, options = {})
-
     SIMPLE_FIELD_HELPER = [ # :nodoc:
       :color_field, :date_field, :datetime_field, :datetime_local_field, :email_field, :file_field,
       :hidden_field, :month_field, :number_field, :password_field, :phone_field, :range_field,
       :search_field, :telephone_field, :text_field, :text_area, :time_field, :url_field, :week_field
     ]
 
-    # TODO add more info to text field
-
     ##
-    # :method: text_field
-    # :call-seq: text_field(method, options = {})
+    # :method: _text_field
+    # :call-seq: _text_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_text_field`.
     # All options are forwarded to the partial. Typically, options such as `label` and `hint` are taken into account with the template.
     # Please checkout the examples in the README.md
     #
-    # The partial template usually calls the original field helper which can be found here: [ActionView::Helpers::FormBuilder#text_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field).
+    # The partial template usually wraps the original field helper which can be found here: [ActionView::Helpers::FormBuilder#text_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_field).
 
     ##
-    # :method: color_field
-    # :call-seq: color_field(method, options = {})
+    # :method: _color_field
+    # :call-seq: _color_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_color_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#color_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-color_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#color_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-color_field).
 
     ##
-    # :method: date_field
-    # :call-seq: date_field(method, options = {})
+    # :method: _date_field
+    # :call-seq: _date_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_date_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#date_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-date_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#date_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-date_field).
 
     ##
-    # :method: datetime_field
-    # :call-seq: datetime_field(method, options = {})
+    # :method: _datetime_field
+    # :call-seq: _datetime_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_datetime_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#datetime_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-datetime_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#datetime_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-datetime_field).
 
     ##
-    # :method: datetime_local_field
-    # :call-seq: datetime_local_field(method, options = {})
+    # :method: _datetime_local_field
+    # :call-seq: _datetime_local_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_datetime_local_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#text_fielddatetime_local_fieldhttps://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-datetime_local_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#text_fielddatetime_local_fieldhttps://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-datetime_local_field).
 
     ##
-    # :method: email_field
-    # :call-seq: email_field(method, options = {})
+    # :method: _email_field
+    # :call-seq: _email_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_email_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#email_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-email_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#email_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-email_field).
 
     ##
-    # :method: file_field
-    # :call-seq: file_field(method, options = {})
+    # :method: _file_field
+    # :call-seq: _file_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_file_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#file_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#file_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-file_field).
 
     ##
-    # :method: hidden_field
-    # :call-seq: hidden_field(method, options = {})
+    # :method: _hidden_field
+    # :call-seq: _hidden_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_hidden_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#hidden_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-hidden_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#hidden_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-hidden_field).
 
     ##
-    # :method: month_field
-    # :call-seq: month_field(method, options = {})
+    # :method: _month_field
+    # :call-seq: _month_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_month_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#month_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-month_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#month_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-month_field).
 
     ##
-    # :method: number_field
-    # :call-seq: number_field(method, options = {})
+    # :method: _number_field
+    # :call-seq: _number_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_number_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#number_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-number_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#number_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-number_field).
 
     ##
-    # :method: password_field
-    # :call-seq: password_field(method, options = {})
+    # :method: _password_field
+    # :call-seq: _password_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_password_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#password_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-password_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#password_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-password_field).
 
     ##
-    # :method: phone_field
-    # :call-seq: phone_field(method, options = {})
+    # :method: _phone_field
+    # :call-seq: _phone_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_phone_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#phone_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-phone_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#phone_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-phone_field).
 
     ##
-    # :method: range_field
-    # :call-seq: range_field(method, options = {})
+    # :method: _range_field
+    # :call-seq: _range_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_range_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#range_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-range_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#range_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-range_field).
 
     ##
-    # :method: search_field
-    # :call-seq: search_field(method, options = {})
+    # :method: _search_field
+    # :call-seq: _search_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_search_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#search_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-search_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#search_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-search_field).
 
     ##
-    # :method: telephone_field
-    # :call-seq: telephone_field(method, options = {})
+    # :method: _telephone_field
+    # :call-seq: _telephone_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_telephone_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#telephone_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-telephone_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#telephone_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-telephone_field).
 
     ##
-    # :method: text_area
-    # :call-seq: text_area(method, options = {})
+    # :method: _text_area
+    # :call-seq: _text_area(method, options = {})
     #
     # Renders the partial `views/layouts/form/_text_area`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#text_area](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_area).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#text_area](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-text_area).
 
     ##
-    # :method: time_field
-    # :call-seq: time_field(method, options = {})
+    # :method: _time_field
+    # :call-seq: _time_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_time_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#time_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-time_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#time_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-time_field).
 
     ##
-    # :method: url_field
-    # :call-seq: url_field(method, options = {})
+    # :method: _url_field
+    # :call-seq: _url_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_url_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#url_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-url_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#url_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-url_field).
 
     ##
-    # :method: week_field
-    # :call-seq: week_field(method, options = {})
+    # :method: _week_field
+    # :call-seq: _week_field(method, options = {})
     #
     # Renders the partial `views/layouts/form/_week_field`.
     #
-    # Please see #_text_field and [ActionView::Helpers::FormBuilder#week_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-week_field).
+    # Please see #_text_field for more details. The partial template usually wraps [ActionView::Helpers::FormBuilder#week_field](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-week_field).
 
     SIMPLE_FIELD_HELPER.each do |method_name|
-      define_method "_#{method_name}" do |method, options = {}|
+      define_method :"_#{method_name}" do |method, options = {}|
         render_simple_field(__method__, method, options)
       end
     end
 
     # TODO
+    # label(method, text = nil, options = {}, &block)
+    # button(value = nil, options = {}, &block)
+    # submit(value = nil, options = {})
+    # checkbox(method, options = {}, checked_value = "1", unchecked_value = "0")
+    # radio_button(method, tag_value, options = {})
+
     # select(method, choices = nil, options = {}, html_options = {}, &block)
     # collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
     # grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {})
@@ -220,6 +215,10 @@ module PartialForm
     # collection_checkboxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
     # collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
 
+    ##
+    # Renders the partial `views/layouts/form/_label`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#label](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-label).
     def _label(method, text = nil, options = {}, &block)
       errors = object.errors.messages_for(method)
       render_partial("label", {f: self, method:, text:, errors:, options:, block:})
