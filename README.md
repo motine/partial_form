@@ -8,6 +8,28 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 # fish shell; TODO remove
 bundle install
 docker run -it --rm -v (pwd):/app -p 3000:3000 -w /app ruby:3.3 /bin/bash
+
+
+# create a very minimal rails app
+rails new test_app --skip-git --skip-docker --skip-keeps --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-active-record --skip-active-job --skip-active-storage --skip-action-cable --skip-asset-pipeline --skip-javascript --skip-hotwire --skip-jbuilder --skip-test --skip-system --skip-bootsnap --skip-rubocop --skip-brakeman --skip-ci --skip-decrypted-diffs
+# add this to the Gemfile
+#    gem 'partial-form-builder', :path => '..'
+# and run bundle install
+```
+
+## Release process
+
+TODO
+
+```shell
+# review and edit CHANGELOG
+# review & edit README
+# edit lib/formtastic/version.rb
+git ci -am "version bump"                  # commit changes
+git tag X.X.X                              # tag the new version in the code base too
+gem build formtastic.gemspec               # build the gem
+gem push formtastic-X.X.X.gem              # publish the gem
+git push && git push --tags                # push to remote
 ```
 
 ## Installation
