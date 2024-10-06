@@ -7,9 +7,11 @@
     <%= csp_meta_tag %>
 
     <style>
-      body { font-family: sans-serif; }
+      body { font-family: sans-serif; line-height: 1.2; }
+      h1, h2 { margin: 3rem 0 1.5rem 0; }
+
       .form-group, .form-submit {
-        margin: 1.5rem 0;
+        margin: 0.5rem 0;
         padding: 1rem;
         background-color: #f0f0f0;
         width: fit-content;
@@ -20,6 +22,11 @@
       label {
         display: block;
         font-weight: bold;
+      }
+
+      .form-hint {
+        font-size: small;
+        color: #333;
       }
 
       .form-errors {

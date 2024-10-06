@@ -8,4 +8,7 @@
   <% if errors.any? %>
     <p class="form-errors"><%= errors.to_sentence %></p>
   <% end %>
+  <% if options[:hint].present? %>
+    <p class="form-hint"><%= options[:hint] %></p>
+  <% end %>
 </div>
