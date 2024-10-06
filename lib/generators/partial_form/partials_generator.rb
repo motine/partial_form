@@ -2,7 +2,7 @@ module PartialForm
   module Generators
     class PartialsGenerator < Rails::Generators::Base
       SELECTION_GLOBS = {
-        default: "_{text_field,label,submit}*.erb",
+        default: "_{wrapper,text_field,label,submit}*.erb",
         all: "*.erb"
       }
       FORM_PARTIALS_PATH = Pathname(__dir__).join("../../../app/views/layouts/form")

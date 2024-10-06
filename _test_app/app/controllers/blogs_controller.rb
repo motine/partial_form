@@ -5,7 +5,7 @@ class BlogsController < ActionController::Base
   class Blog
     include ActiveModel::Model
     def self.model_name = ActiveModel::Name.new(self, nil, "Blog")
-    attr_accessor :title, :author, :email, :started_at
+    attr_accessor :title, :author, :email, :dummy, :started_at
     validates :title, :author, presence: true
   end
 

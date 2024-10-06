@@ -1,10 +1,10 @@
-<%# locals:
+<%# available locals:
   f: the form builder object
   text: the label's text (can be `nil` to infer via I18n or `false` to skip this label)
   method: the attribute method on the model
   errors: the errors for the attribute
   options: the keyword arguments given
-  block: the block given
+  block: the block given to the _label call
 %>
 <% unless text == false # we always render the label unless the `false` is given %>
   <%= f.label method, text, options, &block %>

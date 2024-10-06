@@ -13,9 +13,9 @@ RDoc::Task.new do |rdoc|
   rdoc.options << "--format=sdoc"
   rdoc.template = "rails"
   rdoc.markup = "markdown"
-  rdoc.rdoc_dir = 'doc'
+  rdoc.rdoc_dir = "doc"
 
-  rdoc.title    = 'PartialForm'
+  rdoc.title = "PartialForm"
   rdoc.main = "README.md"
   rdoc.rdoc_files.include("README.md", "lib/**/*.rb")
   rdoc.rdoc_files.exclude("lib/generators/**/*")

@@ -1,15 +1,9 @@
-<%# locals:
+<%# available locals:
   f: the form builder object
   method: the attribute method on the model
   errors: the errors for the attribute
   options: the keyword arguments given
 %>
-<% options.merge!(class: class_names(options[:class], invalid: errors.any?)) %>
-
-<div class="form-group">
-  <%= f._label method, options.delete(:label) %>
+<%= render("layouts/form/wrapper", **local_assigns) do %>
   <%= f.text_field method, options %>
-  <% if errors.any? %>
-    <p class="form-errors"><%= errors.to_sentence %></p>
-  <% end %>
-</div>
+<% end %>

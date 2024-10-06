@@ -1,0 +1,11 @@
+<%# please see _text_field partial for available locals %>
+
+<% options.merge!(class: class_names(options[:class], invalid: errors.any?)) %>
+
+<div class="form-group">
+  <%= f._label method, options.delete(:label) %>
+  <%= yield %>
+  <% if errors.any? %>
+    <p class="form-errors"><%= errors.to_sentence %></p>
+  <% end %>
+</div>

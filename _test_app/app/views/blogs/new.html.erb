@@ -1,17 +1,36 @@
 <h1>PartialForm <%= PartialForm::VERSION %> Test</h1>
 
 <%= form_with model: @blog, url: blogs_path, builder: PartialForm::Builder do |f| %>
-  <%= f._text_field :title %>
-  <p>The title field should show a label and an error message when the form is submitted empty.</p>
+  <%= f._text_field :title, hint: "The title field should show a label and an error message when the form is submitted empty." %>
 
-  <%= f._text_field :author, label: "Writer", class: "other" %>
-  <p>The author field should have a label saying "Writer", have a purple background. On empty submission, it should turn purple.</p>
+  <%= f._text_field :author, label: "Writer", class: "other", hint: "The author field should have a label saying \"Writer\", have a purple background. On empty submission, it should turn purple." %>
 
-  <%= f._email_field :email, label: false %>
-  <p>This field should not have a label, but the browser should validate it as an email.</p>
+  <%= f._email_field :email, label: false, hint: "This field should not have a label, but the browser should validate it as an email." %>
 
-  <%= f._date_field :started_at %>
-  <p>This field is overridden in this test app. It should say "Override".</p>
+  <%= f._date_field :started_at, hint: "This field is overridden in this test app. It should say \"Override\"." %>
+
+  <h2>All field types</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+    <%= f._text_field :dummy, label: "text" %>
+    <%= f._color_field :dummy, label: "color" %>
+    <%= f._date_field :dummy, label: "date" %>
+    <%= f._datetime_field :dummy, label: "datetime" %>
+    <%= f._datetime_local_field :dummy, label: "datetime_local" %>
+    <%= f._email_field :dummy, label: "email" %>
+    <%= f._file_field :dummy, label: "file" %>
+    <%= f._hidden_field :dummy, value: "invisible", label: "hidden" %>
+    <%= f._month_field :dummy, label: "month" %>
+    <%= f._number_field :dummy, label: "number" %>
+    <%= f._password_field :dummy, label: "password" %>
+    <%= f._phone_field :dummy, label: "phone" %>
+    <%= f._range_field :dummy, label: "range" %>
+    <%= f._search_field :dummy, label: "search" %>
+    <%= f._telephone_field :dummy, label: "telephone" %>
+    <%= f._text_area :dummy, label: "textarea" %>
+    <%= f._time_field :dummy, label: "time" %>
+    <%= f._url_field :dummy, label: "url" %>
+    <%= f._week_field :dummy, label: "week" %>
+  </div>
 
   <%= f._submit %>
 <% end %>

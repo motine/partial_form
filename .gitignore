@@ -8,3 +8,4 @@
 /tmp/
 /_test_app/log
 /_test_app/tmp
+.DS_Store

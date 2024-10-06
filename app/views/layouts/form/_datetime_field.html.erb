@@ -1,4 +1,4 @@
 <%# please see _text_field partial for available locals %>
-
-<% local_assigns[:options].merge!(type: "datetime-local") %>
-<%= render partial: "layouts/form/text_field", locals: local_assigns %>
+<%= render("layouts/form/wrapper", **local_assigns) do %>
+  <%= f.datetime_field method, options %>
+<% end %>
