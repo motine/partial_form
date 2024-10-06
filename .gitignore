@@ -6,6 +6,6 @@
 /pkg/
 /spec/reports/
 /tmp/
-/_test_app/log
-/_test_app/tmp
+/_demo_app/log
+/_demo_app/tmp
 .DS_Store
