@@ -1,9 +1,4 @@
-<%# available locals:
-  f: the form builder object
-  method: the attribute method on the model
-  errors: the errors for the attribute
-  options: the keyword arguments given
-%>
-<%= render("layouts/form/wrapper", **local_assigns) do %>
-  <%= f.text_field method, options %>
+<%# available locals: f, method, options, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.text_field method, options -%>
 <% end %>
