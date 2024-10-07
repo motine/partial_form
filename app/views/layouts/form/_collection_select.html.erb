@@ -1,0 +1,4 @@
+<%# available locals: method, collection, value_method, text_method, options, html_options, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.collection_select method, collection, value_method, text_method, options, html_options %>
+<% end %>

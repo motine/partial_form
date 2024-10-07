@@ -1,13 +1,16 @@
 <h1>PartialForm <%= PartialForm::VERSION %> Test</h1>
 
 <%= form_with model: @blog, url: blogs_path, builder: PartialForm::Builder do |f| %>
-  <%= f._text_field :title, hint: "The title field should show a label and an error message when the form is submitted empty." %>
+  <h2>Wrapper</h2>
+  <%= f._text_field :dummy, hint: "The title field should show a label and an error message when the form is submitted empty." %>
+  <%= f._text_field :dummy, label: "Writer", class: "highlight", hint: "The author field should have a label saying \"Writer\", have a purple background. On form submission, it should turn purple." %>
+  <%= f._email_field :dummy, label: false, hint: "This field should not have a label, but the browser should validate it as an email." %>
+  <%= f._date_field :dummy, hint: "This field is overridden in this test app. It should say \"Override\"." %>
 
-  <%= f._text_field :author, label: "Writer", class: "other", hint: "The author field should have a label saying \"Writer\", have a purple background. On empty submission, it should turn purple." %>
-
-  <%= f._email_field :email, label: false, hint: "This field should not have a label, but the browser should validate it as an email." %>
-
-  <%= f._date_field :started_at, hint: "This field is overridden in this test app. It should say \"Override\"." %>
+  <h2>Label & Buttons</h2>
+  <%= f._label :dummy, "Label" %>
+  <%= f._button "Button" %>
+  <%= f._submit "Submit" %>
 
   <h2>All field types</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
@@ -30,7 +33,47 @@
     <%= f._time_field :dummy, label: "time" %>
     <%= f._url_field :dummy, label: "url" %>
     <%= f._week_field :dummy, label: "week" %>
+    <%= f._check_box :dummy, label: "checkbox" %>
+    <%= f._radio_button :dummy, "value1", label: "radio_button" %>
+    <%= f._select :dummy, [1,2,3], {label: "select"}, class: "highlight" %>
+    <%= f._collection_select :dummy, @collection, :value, :text, label: "collection_select" %>
+    <%= f._grouped_collection_select :dummy, @grouped_collection, :cities, :name, :id, :name, label: "grouped_collection_select" %>
+    <%= f._time_zone_select :dummy, nil, label: "time_zone_select" %>
+    <%= f._weekday_select :dummy, {}, class: "highlight", label: "weekday_select" %>
+    <%= f._collection_check_boxes :dummy_array, @collection, :value, :text, label: "collection_checkboxes" %>
+    <%= f._collection_radio_buttons :dummy, @collection, :value, :text, label: "collection_radio_buttons" %>
   </div>
-
-  <%= f._submit %>
 <% end %>
+
+
+<style>
+  .form-group, .form-submit {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    width: fit-content;
+    border-radius: 0.5rem;
+  }
+
+  .form-hint {
+    font-size: small;
+    color: #333;
+  }
+
+  .form-errors {
+    margin: 0.5rem 0 0 0;
+    color: #990000;
+    font-size: small;
+  }
+  .invalid {
+    background-color: #f66;
+    accent-color: #f9f;
+  }
+
+  .highlight {
+    background-color: #9f9;
+  }
+  .highlight.invalid {
+    background-color: #f9f;
+  }
+</style>

@@ -200,21 +200,6 @@ module PartialForm
       end
     end
 
-    # TODO
-    # label(method, text = nil, options = {}, &block)
-    # button(value = nil, options = {}, &block)
-    # submit(value = nil, options = {})
-    # checkbox(method, options = {}, checked_value = "1", unchecked_value = "0")
-    # radio_button(method, tag_value, options = {})
-
-    # select(method, choices = nil, options = {}, html_options = {}, &block)
-    # collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
-    # grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {})
-    # time_zone_select(method, priority_zones = nil, options = {}, html_options = {})
-    # weekday_select(method, options = {}, html_options = {})
-    # collection_checkboxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
-    # collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
-
     ##
     # Renders the partial `views/layouts/form/_label`.
     #
@@ -224,8 +209,101 @@ module PartialForm
       render_partial("label", {f: self, method:, text:, errors:, options:, block:})
     end
 
+    ##
+    # Renders the partial `views/layouts/form/_button`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#button](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-button).
+    def _button(value = nil, options = {}, &block)
+      render_partial("button", {f: self, value:, options:, block:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_submit`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#submit](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-submit).
     def _submit(value = nil, options = {})
       render_partial("submit", {f: self, value:, options:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_check_box`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#check_box](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-check_box).
+    def _check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
+      errors = object.errors.messages_for(method)
+      render_partial("check_box", {f: self, method:, options:, checked_value:, unchecked_value:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_radio_button`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#radio_button](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-radio_button).
+    def _radio_button(method, tag_value, options = {})
+      errors = object.errors.messages_for(method)
+      render_partial("radio_button", {f: self, method:, tag_value:, options:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_select`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#select](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-select).
+    def _select(method, choices = nil, options = {}, html_options = {}, &block)
+      errors = object.errors.messages_for(method)
+      render_partial("select", {f: self, method:, choices:, options:, html_options:, block:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_collection_select`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#collection_select](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_select).
+    def _collection_select(method, collection, value_method, text_method, options = {}, html_options = {})
+      errors = object.errors.messages_for(method)
+      render_partial("collection_select", {f: self, method:, collection:, value_method:, text_method:, options:, html_options:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_grouped_collection_select`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#grouped_collection_select](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-grouped_collection_select).
+    def _grouped_collection_select(method, collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {})
+      errors = object.errors.messages_for(method)
+      render_partial("grouped_collection_select", {f: self, method:, collection:, group_method:, group_label_method:, option_key_method:, option_value_method:, options:, html_options:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_time_zone_select`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#time_zone_select](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-time_zone_select).
+    def _time_zone_select(method, priority_zones = nil, options = {}, html_options = {})
+      errors = object.errors.messages_for(method)
+      render_partial("time_zone_select", {f: self, method:, priority_zones:, options:, html_options:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_weekday_select`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#weekday_select](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-weekday_select).
+    def _weekday_select(method, options = {}, html_options = {})
+      errors = object.errors.messages_for(method)
+      render_partial("weekday_select", {f: self, method:, options:, html_options:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_collection_check_boxes`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#collection_check_boxes](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_check_boxes).
+    def _collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+      errors = object.errors.messages_for(method)
+      render_partial("collection_check_boxes", {f: self, method:, collection:, value_method:, text_method:, options:, html_options:, block:, errors:})
+    end
+
+    ##
+    # Renders the partial `views/layouts/form/_collection_radio_buttons`.
+    #
+    # The partial template usually wraps [ActionView::Helpers::FormBuilder#collection_radio_buttons](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-collection_radio_buttons).
+    def _collection_radio_buttons(method, collection, value_method, text_method, options = {}, html_options = {}, &block)
+      errors = object.errors.messages_for(method)
+      render_partial("collection_radio_buttons", {f: self, method:, collection:, value_method:, text_method:, options:, html_options:, block:, errors:})
     end
 
     protected

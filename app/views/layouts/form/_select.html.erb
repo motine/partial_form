@@ -1,0 +1,4 @@
+<%# available locals: f, method, choices, options, html_options, block, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.select method, choices, options, html_options, &block %>
+<% end %>

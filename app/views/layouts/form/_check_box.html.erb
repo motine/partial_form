@@ -1,0 +1,4 @@
+<%# available locals: f, method, options, checked_value, unchecked_value, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.check_box method, options, checked_value, unchecked_value %>
+<% end %>

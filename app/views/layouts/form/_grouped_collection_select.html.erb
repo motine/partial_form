@@ -1,0 +1,4 @@
+<%# available locals: f, method, collection, group_method, group_label_method, option_key_method, option_value_method, options, html_options, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.grouped_collection_select method, collection, group_method, group_label_method, option_key_method, option_value_method, options, html_options %>
+<% end %>

@@ -1,0 +1,4 @@
+<%# available locals: f, method, priority_zones, options, html_options, errors %>
+<%= render("layouts/form/wrapper", **local_assigns) do -%>
+  <%= f.time_zone_select method, priority_zones, options, html_options %>
+<% end %>
