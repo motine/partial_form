@@ -1,62 +1,60 @@
-# PartialFormBuilder
+# PartialForm
 
-TODO: Delete this and the text below, and describe your gem
+TODO: description & benefits
+  - see & link https://discuss.rubyonrails.org/t/introduce-a-standard-formbuilder-that-leverages-partials/86790  
+  - note: https://github.com/seanpdoyle/view_partial_form_builder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/partialed/form/builder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-```bash
-# fish shell; TODO remove
-docker build -t partial_form .
-docker run -it --rm -v (pwd):/app -p 3000:3000 partial_form
-
-
-# create a very minimal rails app
-rails new test_app --skip-git --skip-docker --skip-keeps --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-active-record --skip-active-job --skip-active-storage --skip-action-cable --skip-asset-pipeline --skip-javascript --skip-hotwire --skip-jbuilder --skip-test --skip-system --skip-bootsnap --skip-rubocop --skip-brakeman --skip-ci --skip-decrypted-diffs
-# add this to the Gemfile
-#    gem 'partial-form-builder', :path => '..'
-# and run bundle install
-```
-
-## Release process
-
-TODO
-
-```shell
-# review and edit CHANGELOG
-# review & edit README
-# edit lib/formtastic/version.rb
-git ci -am "version bump"                  # commit changes
-git tag X.X.X                              # tag the new version in the code base too
-gem build formtastic.gemspec               # build the gem
-gem push formtastic-X.X.X.gem              # publish the gem
-git push && git push --tags                # push to remote
-```
-
-## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+TODO: how to add the gem (bundle add)
 
 ## Usage
 
+
 TODO: Write usage instructions here
+  - the builder mimics the API of https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html but with a prefix
+  - set it as default form builder: default_form_builder zu docs
+  - rails g partial_form:partials (also default & all option)
+  - examples for partials in README? (tailwind, nested)
 
-## Development
+```bash
+rails g partial_form:partials
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test-unit` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+TODO: add prominent link to the documentation
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Develop & Contribute
 
-## Contributing
+Bug reports and pull requests are welcome on [GitHub](https://github.com/motine/partial_form).
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/partialed-form-builder.
+The easiest way to get a development environment ist to build and use a Docker image:
+
+```bash
+# build and enter the dev container
+docker build -t partial_form .
+docker run -it --rm -v $(pwd):/app -p 3000:3000 partial_form
+
+# useful commands
+rake test
+rake standard:fix
+rake # run both
+rake rdoc
+_demo_app/bin/rails s -b 0.0.0.0 # start the demo app & visit http://localhost:3000 (the gem is reloaded in a very sloppy manner)
+```
+
+## Release
+
+This section is intended for the maintainer.
+
+```shell
+# make changes
+# review and edit CHANGELOG
+# edit lib/partial_form/version.rb
+export VERSION=0.0.1
+git commit -am "version bump"
+git tag $VERSION
+gem build partial_form.gemspec
+gem push partial_form-$VERSION.gem
+git push && git push --tags
+```
 
 ## License
 

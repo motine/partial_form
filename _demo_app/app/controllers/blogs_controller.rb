@@ -1,8 +1,9 @@
+# Dummy controller for showing off & testing the gem.
 class BlogsController < ActionController::Base
   before_action :reload_gem_files
   before_action :set_dummies
 
-  # dummy model
+  # Dummy model
   class Blog
     include ActiveModel::Model
     def self.model_name = ActiveModel::Name.new(self, nil, "Blog")
@@ -10,9 +11,11 @@ class BlogsController < ActionController::Base
     validates :dummy, :dummy_array, presence: true
   end
 
+  # The GET action shows the fields without validation messages.
   def new
   end
 
+  # The POST action includes validation messages.
   def create
     @blog.valid? # trigger validations
     render :new, status: :unprocessable_entity # always re-render the new template
@@ -32,7 +35,7 @@ class BlogsController < ActionController::Base
   end
 
   def reload_gem_files
-    # very hacky way to ensure that the latest version of the gem's files are loaded
+    # very hacky way to ensure that the latest version of the gem's files are reloaded
     files = Dir.glob("#{Rails.root.join("../lib")}/**/*.rb").reject { _1.include?("generator") }
     files.each { |file| load file }
   end
