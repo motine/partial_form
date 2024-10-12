@@ -8,8 +8,8 @@ TODO: how to add the gem (bundle add)
 
 ## Usage
 
-
 TODO: Write usage instructions here
+  - steal from builder.rb
   - the builder mimics the API of https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html but with a prefix
   - set it as default form builder: default_form_builder zu docs
   - rails g partial_form:partials (also default & all option)
@@ -19,7 +19,7 @@ TODO: Write usage instructions here
 rails g partial_form:partials
 ```
 
-TODO: add prominent link to the documentation
+TODO: add prominent link to the latest documentation: https://motine.github.io/partial_form/
 
 ## Develop & Contribute
 

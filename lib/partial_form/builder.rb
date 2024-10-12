@@ -6,6 +6,9 @@ module PartialForm
   # the builder mimics the API of https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html
   # but with a prefix
   #
+  # please also see README
+  #
+  #
   # when using this builder it allows to call methods with the `rich_` prefix.
   # the "rich" method tries to find a partial under `views/layouts/form`.
   # e.g. calling `f.rich_text_field :surname` will render the `views/layouts/form/text_field` partial.
