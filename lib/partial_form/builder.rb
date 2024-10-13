@@ -319,6 +319,7 @@ module PartialForm
 
     # Renders the partial with the given name, forwarding the locals to it.
     def render_partial(partial_name, locals = {})
+      # layout name: controller.send :_layout, self.lookup_context, []
       partial_path = "layouts/form/#{partial_name}"
       raise "Please provide #{partial_path} partial" unless @template.lookup_context.exists?(partial_path, [], true) # true stands for partial
       @template.render(partial: partial_path, locals:)

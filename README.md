@@ -14,6 +14,7 @@ TODO: Write usage instructions here
   - set it as default form builder: default_form_builder zu docs
   - rails g partial_form:partials (also default & all option)
   - examples for partials in README? (tailwind, nested)
+  - how to add a new partial to the builder
 
 ```bash
 rails g partial_form:partials
