@@ -23,7 +23,7 @@ module PartialForm
         @selection = given_selection
         valid_selections = SELECTION_GLOBS.keys.map(&:to_s)
         if @selection.blank?
-          @selection = ask("Which partials do you wan to copy?", limited_to: valid_selections)
+          @selection = ask("Which partials do you want to copy?", limited_to: valid_selections)
         end
         unless valid_selections.include?(@selection)
           raise Thor::Error, "Please choose a valid selection (first parameter): #{valid_selections.join(", ")}"
