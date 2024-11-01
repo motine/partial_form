@@ -122,7 +122,8 @@ This section is intended for the maintainer.
 
 ```shell
 # make changes
-# review and edit CHANGELOG
+rake # preflight
+# review and edit CHANGELOG.md
 # edit lib/partial_form/version.rb
 export VERSION=0.0.1
 git commit -am "version bump"

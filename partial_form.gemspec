@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Tom Rothe"]
   spec.email = ["info@tomrothe.de"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "Customizable forms for Rails using partials!"
+  spec.description = "The gem simplifies the rendering of form fields by providing a `FormBuilder` that leverages partials. This approach streamlines the management and maintenance of the field helper markup."
   spec.homepage = "https://github.com/motine/partial_form"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
