@@ -20,9 +20,12 @@ The gem provides a form builder named `PartialForm::Builder`, here an example:
 
 ```erb
 <%# app/views/article/_form.html.erb %>
+
 <%= form_with model: @article, builder: PartialForm::Builder do |f|  %>
+
   <%= f._text_field :title # mind the prefix, renders app/views/form/_text_field.html.erb %>
   <%= f._date_field :published_on, hint: "The release date" # pass arbitrary options to the partial %>
+
   <%= f.text_field :slug # the default form helper is available without prefix %>
 <% end %>
 ```
@@ -71,8 +74,11 @@ Here an example how to **customize an existing helper** (`_text_field`) partial:
 
 ```erb
 <%# available locals: f, method, options, errors; all keyword arguments passed to the `_text_field` are accessible via `options` %>
+
 <%= f.label method, class: "mb-3" # call the default form builder helper %>
+
 <%= f.text_field method, options.merge!(class: class_names(options[:class], "mb-3 border", invalid: errors.any?)) # make sure to retain passed `class` %>
+
 <% if errors.any? -%>
   <p class="mt-4 text-red-200"><%= errors.to_sentence %></p>
 <% end %>
@@ -125,7 +131,7 @@ This section is intended for the maintainer.
 rake # preflight
 # review and edit CHANGELOG.md
 # edit lib/partial_form/version.rb
-export VERSION=0.0.1
+export VERSION=0.1.0
 git commit -am "version bump"
 git tag $VERSION
 gem build partial_form.gemspec
