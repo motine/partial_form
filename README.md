@@ -22,10 +22,8 @@ The gem provides a form builder named `PartialForm::Builder`, here an example:
 <%# app/views/article/_form.html.erb %>
 
 <%= form_with model: @article, builder: PartialForm::Builder do |f|  %>
-
   <%= f._text_field :title # mind the prefix, renders app/views/form/_text_field.html.erb %>
   <%= f._date_field :published_on, hint: "The release date" # pass arbitrary options to the partial %>
-
   <%= f.text_field :slug # the default form helper is available without prefix %>
 <% end %>
 ```
@@ -76,7 +74,6 @@ Here an example how to **customize an existing helper** (`_text_field`) partial:
 <%# available locals: f, method, options, errors; all keyword arguments passed to the `_text_field` are accessible via `options` %>
 
 <%= f.label method, class: "mb-3" # call the default form builder helper %>
-
 <%= f.text_field method, options.merge!(class: class_names(options[:class], "mb-3 border", invalid: errors.any?)) # make sure to retain passed `class` %>
 
 <% if errors.any? -%>
@@ -90,6 +87,7 @@ To **add a new helper method**, you can derive from the `PartialForm::Builder` a
 
 ```ruby
 class MyBuilder < PartialForm::Builder
+
   def _fancy_field(method, options = {})
     render_simple_field(:_fancy_field, method, options) # renders the partial `views/layouts/form/_fancy_field` and passes the default arguments such as `f`, `method`, `errors`, etc.
   end
