@@ -2,7 +2,7 @@
 
 Customizable forms for Rails using partials!
 
-The PartialFormBuilder gem allows the rendering of form fields by providing a FormBuilder that leverages partials. This gem aims to streamline the process of rendering form fields, making it easier to manage and maintain form code. By leveraging partials, developers can define form field markup separately, which helps keep the main form view organized.
+The PartialForm gem simplifies the rendering of form fields by providing a `FormBuilder` that leverages partials. This approach streamlines the management and maintenance of the field helper markup.
 
 Potential uses are:
 

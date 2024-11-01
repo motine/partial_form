@@ -2,32 +2,13 @@ require "action_view"
 
 module PartialForm
   ##
-  # TODO docs
-  # the builder mimics the API of https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html
-  # but with a prefix
+  # The builder allows the rendering of form fields similar to rails default `FormBuilder`.
+  # This Builder uses partials to manage and maintain the form field markup code.
+  # The Builder mimics the API of the default [Rails FormBuilder](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html) with the prefix `_`.
   #
-  # please also see README
+  # The general idea is that each helper renders a dedicated partial and passes the arguments: `f`, `method`, `options`, `errors`.
   #
-  #
-  # when using this builder it allows to call methods with the `rich_` prefix.
-  # the "rich" method tries to find a partial under `views/layouts/form`.
-  # e.g. calling `f.rich_text_field :surname` will render the `views/layouts/form/text_field` partial.
-  # the partial receives the following options:
-  #
-  # - f: the builder instance (useful to call the original form builder methods such as `f.text_field`)
-  # - input_args: any argument passed to the rich method
-  # - input_options: any argument passed
-  # - errors: the error messages for the given method name (Array of Strings)
-  # - the following kw-args are passed through:
-  #     - label, hint
-  #     - wrapper_options, label_options
-
-  #     label: "E-Mail" # received by
-  #     f.rich_abc :field, "", same_for: :
-  #
-  # ASSUMPTIONS
-  # the first argument of a rich_* helper is always the method name (i.e. the attribute name in the model).
-
+  # Please see README.md for more details.
   class Builder < ActionView::Helpers::FormBuilder
     def initialize(*) # :nodoc:
       super
