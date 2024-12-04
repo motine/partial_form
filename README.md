@@ -22,7 +22,7 @@ The gem provides a form builder named `PartialForm::Builder`, here an example:
 <%# app/views/article/_form.html.erb %>
 
 <%= form_with model: @article, builder: PartialForm::Builder do |f|  %>
-  <%= f._text_field :title # mind the prefix, renders app/views/form/_text_field.html.erb %>
+  <%= f._text_field :title # mind the "_", renders app/views/form/_text_field.html.erb %>
   <%= f._date_field :published_on, hint: "The release date" # pass arbitrary options to the partial %>
   <%= f.text_field :slug # the default form helper is available without prefix %>
 <% end %>
